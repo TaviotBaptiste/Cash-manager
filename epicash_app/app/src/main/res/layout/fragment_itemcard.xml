@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:id="@+id/imagecard"
+            android:src="@drawable/ic_epicash_foreground"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1">
+            <TextView
+                android:text="VIsa / Electron"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/Epicash_panier_text"
+                android:id="@+id/textView4"/>
+            <TextView
+                android:text="Carte de débit se terminant par : **** 0001"
+                android:textSize="12sp"
+                android:textColor="@color/Epicash_panier_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView8"/>
+        </LinearLayout>
+</LinearLayout>

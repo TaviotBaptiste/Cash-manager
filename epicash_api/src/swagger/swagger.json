@@ -1,0 +1,921 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a simple example NodeJS API project to demonstrate Swagger Documentation",
+        "version": "1.0.0",
+        "title": "Cash API",
+        "contact": {
+            "email": "abc@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "schemes": ["http"],
+    "host": "localhost:4212",
+    "basePath": "/api",
+    "paths" : {
+        "/api/users (get all)" : {
+            "get" : {
+                "summary" : "Get all users",
+                "description": "Get all users",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/users"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/{id} (get one)" : {
+            "get" : {
+                "summary" : "Get one user",
+                "description": "Get one user",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+
+                                    "type": "object",
+                                    "$ref": "#/definitions/users"
+
+
+                        }
+                        
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users (create)" : {
+            "post" : {
+                "summary" : "Creat a user",
+                "description": "Creat a user",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "user object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/user"
+
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/users"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/{id} (update)" : {
+            "put" : {
+                "summary" : "Update the user",
+                "description": "Update the user",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/user"
+                            
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/users"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/{id} (delete)" : {
+            "delete" : {
+                "summary" : "Delete the user",
+                "description": "Delete the user",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "integer",
+                            "items": "id"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/identify" : {
+            "post" : {
+                "summary" : "Identify user",
+                "description": "Identify user",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "user object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email":{
+                                    "type": "string"
+                                },
+                                "password":{
+                                    "type": "string"
+                                }
+                            }
+
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "status":{
+                                    "type": "boolean"
+                                },
+                                "id":{
+                                    "type": "integer"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/addcash/{id}" : {
+            "post" : {
+                "summary" : "add money to user solde",
+                "description": "add money to user solde",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "user object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/paye"
+
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/users"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/paye/{id}" : {
+            "post" : {
+                "summary" : "Paye a list of product",
+                "description": "Paye a list of product",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "user object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "card": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "id":{
+                                                "type":"integer"
+                                            },
+                                            "qty":{
+                                                "type":"integer"
+                                            }
+                                        }
+                                    }
+
+                                    
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/returnPaye"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/accounts/{id} (get all)" : {
+            "get" : {
+                "summary" : "Get all bank account from user",
+                "description": "Get all bank account from user",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/accounts"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        
+        "/api/users/accounts (create)" : {
+            "post" : {
+                "summary" : "Creat a user bank account",
+                "description": "Creat a user bank account",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "user object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/account"
+
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/accounts"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/accounts/{userId}/{accountId} (delete)" : {
+            "delete" : {
+                "summary" : "Delete the user bank account",
+                "description": "Delete the user bank account",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "accountId",
+                        "in": "path",
+                        "description": "account id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "integer",
+                            "items": "id"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/bills/{userId} (get all)" : {
+            "get" : {
+                "summary" : "Get all bills of user",
+                "description": "Get all bills of user",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/bills"
+                            }
+                        }
+                        
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/bills/{userId}/{billId} (get one)" : {
+            "get" : {
+                "summary" : "Get one bill of user",
+                "description": "Get one bill of user",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "billId",
+                        "in": "path",
+                        "description": "bill id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                                    "type": "object",
+                                    "$ref": "#/definitions/bills"
+                        }
+                        
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products (get all)" : {
+            "get" : {
+                "summary" : "Get all products",
+                "description": "Get all products",
+                "produces": ["application/json"],
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/products"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products/{id} (get one)" : {
+            "get" : {
+                "summary" : "Get one product",
+                "description": "Get one product",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "product id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+
+                                    "type": "object",
+                                    "$ref": "#/definitions/products"
+
+
+                        }
+                        
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products (create)" : {
+            "post" : {
+                "summary" : "Creat a product",
+                "description": "Creat a product",
+                "produces": ["application/json"],
+                "consumes": ["application/json"],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "product object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/product"
+
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/products"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products/{id} (update)" : {
+            "put" : {
+                "summary" : "Update the product",
+                "description": "Update the product",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "product id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "product object",
+                        "required": true,
+                        "schema": {
+                            "type": "object",
+                            "$ref": "#/definitions/product"
+                            
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/products"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/products/{id} (delete)" : {
+            "delete" : {
+                "summary" : "Delete the product",
+                "description": "Delete the product",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "product id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "integer",
+                            "items": "id"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        }
+    }, 
+    "definitions": {
+        "users": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "email":{
+                    "type": "string"
+                },
+                "firstname":{
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "solde": {
+                    "type": "integer"
+                },
+                "admin": {
+                    "type": "boolean"
+                },
+                "updatedAt": {
+                    "type": "date"
+                },
+                "createdAt": {
+                    "type": "date"
+                }
+            }
+        },
+        "user": {
+            "type": "object",
+            "properties": {
+
+                "email":{
+                    "type": "string"
+                },
+                "firstname":{
+                    "type": "string"
+                },
+                "lastname": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "solde": {
+                    "type": "integer"
+                },
+                "admin": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "products": {
+            "type": "object",
+            "properties": {
+
+                "id": {
+                    "type": "integer"
+                },
+                "libelle":{
+                    "type": "string"
+                },
+                "prix": {
+                    "type": "integer"
+                },
+                "desc": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "activated": {
+                    "type": "boolean"
+                },
+                "updatedAt": {
+                    "type": "date"
+                },
+                "createdAt": {
+                    "type": "date"
+                }
+            }
+        },
+        "product": {
+            "type": "object",
+            "properties": {
+
+                "libelle":{
+                    "type": "string"
+                },
+                "prix": {
+                    "type": "integer"
+                },
+                "desc": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "activated": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "accounts": {
+            "type": "object",
+            "properties": {
+                "id":{
+                    "type": "integer"
+                },
+                "card_number": {
+                    "type": "integer"
+                },
+                "validation_date": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "date"
+                },
+                "updatedAt": {
+                    "type": "date"
+                },
+                "fk_user": {
+                    "type": "integer"
+                }
+            }
+        },
+        "account": {
+            "type": "object",
+            "properties": {
+                "card_number": {
+                    "type": "integer"
+                },
+                "validation_date": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "fk_user": {
+                    "type": "integer"
+                }
+            }
+        },
+        "paye": {
+            "type": "object",
+            "properties": {
+                "cash":{
+                    "type": "integer"
+                },
+                "account":{
+                    "type": "integer"
+                },
+                "cvv": {
+                    "type": "integer"
+                }
+            }
+        },
+        "bills": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "reference": {
+                    "type": "string"
+                },
+                "line": {
+                    "type": "array",
+                    "items":
+                    {
+                        "type": "object",
+                        "properties": {
+                            "fk_product": {
+                                "type": "integer"
+                            },
+                            "qty": {
+                                "type": "integer"
+                            },
+                            "productName": {
+                                "type": "string"
+                            },
+                            "prix": {
+                                "type": "integer"
+                            },
+                            "totalLine": {
+                                "type": "integer"
+                            }
+                        }
+                    }
+                },
+                "fk_user":{
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "integer"
+                },
+                "createdAt":{
+                    "type": "date"
+                }
+            }
+        },
+        "returnPaye":{
+            "type": "object",
+            "properties": {
+                "status":{
+                    "type": "boolean"
+                },
+                "data":{
+                    "type":"object",
+                    "properties": {
+                        "missingSolde":{
+                            "type": "integer"
+                        },
+                        "bills":{
+                            "type":"object",
+                            "$ref":"#/definitions/bills"
+                        },
+                        "user":{
+                            "type":"object",
+                            "$ref":"#/definitions/users"
+                        }
+                    }
+                }
+            }
+        },
+        "InvalidResponse": {
+            "message":"Error message"
+        }
+    }
+}

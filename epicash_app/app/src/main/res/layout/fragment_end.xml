@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EndFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/Epicash_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="200dp" >
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Epicash_end_done"
+                android:textColor="@color/Epicash_button"
+                android:textSize="30sp"
+                android:layout_marginBottom="30dp"
+                />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="178dp"
+                app:srcCompat="@drawable/ic_logo_valid" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Epicash_end_valid_payment"
+                android:textSize="20sp"
+                android:layout_marginTop="30dp"
+                />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="bottom"
+                                        android:layout_marginLeft="20dp"
+                                        android:layout_marginRight="20dp">
+        <Button
+                android:id="@+id/Epicash_end_button_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rounded_corner_blue"
+                android:text="@string/Epicash_end_button_retour"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+        />
+    </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

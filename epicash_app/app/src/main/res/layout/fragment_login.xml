@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             tools:context=".LoginFragment">
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/Epicash_background" tools:ignore="UselessParent">
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp">
+            <ImageView
+                    android:src="@drawable/ic_epitechcash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="250dp" android:id="@+id/imageView" android:layout_weight="1"
+                    app:tint="@color/Epicash_button"/>
+        </LinearLayout>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_corner"
+                    android:backgroundTint="@color/Epicash_edittext_background">
+                <ImageView
+                        android:src="@drawable/ic_mail"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/mail_image_view"
+                        android:layout_weight="0"/>
+                <EditText
+                        android:hint="@string/Epicash_profil_mail"
+                        android:textColorHint="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/Epicash_login_data_mail"
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@color/black"
+                        android:maxLines="1"
+                        android:textSize="16sp" android:backgroundTint="#00FFFFFF"/>
+            </LinearLayout>
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginEnd="50dp"
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_corner"
+                    android:backgroundTint="@color/Epicash_edittext_background">
+                <ImageView
+                        android:src="@drawable/ic_password"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:id="@+id/password_image_view"
+                        android:layout_weight="0"/>
+                <EditText
+                        android:hint="@string/Epicash_profil_data_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/black"
+                        android:id="@+id/Epicash_login_data_password"
+                        android:fontFamily="@font/roboto"
+                        android:inputType="textPassword"
+                        android:textColor="@color/black"
+                        android:maxLines="1"
+                        android:textSize="16sp" android:backgroundTint="#00FFFFFF"/>
+            </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                    android:text="@string/Epicash_profil_button_connexion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="60dp"
+                    android:layout_marginEnd="60dp"
+                    android:textAllCaps="false"
+                    android:id="@+id/Epicash_connexion_button"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto"
+                    android:background="@drawable/rounded_corner"
+                    android:backgroundTint="@color/Epicash_button"/>
+            <TextView
+                    android:text="Mot de passe oublié ?"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
+                    android:id="@+id/Epicash_forgot_password"
+                    android:textColor="@color/Epicash_button" android:textAlignment="center"/>
+        </LinearLayout>
+        <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                    android:text="Termes et conditions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/Epicash_condition"
+                    android:textAlignment="center"
+                    android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>
