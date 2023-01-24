@@ -34,6 +34,9 @@
 The aim of this project is to build a distant payment system that can receive and execute orders issued by
 a terminal app on your phone.
 
+<img width="765" alt="Cash manager Figma" src="https://user-images.githubusercontent.com/30879857/214324868-dadfb1b0-bd48-49a6-837a-8023648e1340.png">
+
+
 ## :sparkles: Features (MOBILE) ##
 
 :heavy_check_mark: - Let you add articles to a cart,then proceed to payment;\
