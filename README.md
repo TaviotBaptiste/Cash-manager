@@ -153,7 +153,7 @@ PASSWORD=postgres
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with :heart: by <a href="https://github.com/jojoricard" target="_blank">Joris RICARD</a>, <a href="https://github.com/ltournayre" target="_blank">Lola TOURNAYRE</a>, <a href="https://github.com/SimonParrot" target="_blank">Simon PARROT</a>, <a href="https://github.com/RobZ911" target="_blank">Robin RIGOGNE</a> and <a href="https://github.com/BTAVIOT" target="_blank">Baptiste TAVIOT</a>
+Made with :heart: by <a href="https://github.com/jojoricard" target="_blank">Joris RICARD</a>, <a href="https://github.com/ltournayre" target="_blank">Lola TOURNAYRE</a>, <a href="https://github.com/SimonParrot" target="_blank">Simon PARROT</a>, <a href="https://github.com/RobZ911" target="_blank">Robin RIGOGNE</a> and <a href="https://github.com/TaviotBaptiste" target="_blank">Baptiste TAVIOT</a>
 
 &#xa0;
 
